@@ -1,0 +1,45 @@
+{
+  "name": "bigint-converter",
+  "displayName": "BigInt Converter",
+  "description": "Convert BigInt values by dividing by a specified factor",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "bigint-converter.convert",
+        "title": "Convert BigInt"
+      }
+    ],
+    "configuration": {
+      "title": "BigInt Converter",
+      "properties": {
+        "bigintConverter.defaultFactor": {
+          "type": "number",
+          "default": 30,
+          "description": "Default exponent for conversion (10^n)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.60.0",
+    "typescript": "^5.0.0",
+    "@vscode/vsce": "^2.24.0"
+  }
+}
