@@ -1,8 +1,15 @@
 {
   "name": "bigint-converter",
   "displayName": "BigInt Converter",
+  "author": "Hubért de Lalye <hubert-de-lalye@proton.me>",
   "description": "Convert BigInt values by dividing by a specified factor",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "publisher": "HubrtdeLalye",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hubert-de-lalye/bigint-converter"
+  },
+  "icon": "./icon.png",
   "engines": {
     "vscode": "^1.60.0"
   },
@@ -14,8 +21,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "bigint-converter.convert",
+        "command": "bigint-converter.convert-bigint-to-number",
         "title": "Convert BigInt"
+      },
+      {
+        "command": "bigint-converter.convert-bigint-to-bigint",
+        "title": "Convert BigInt to BigInt"
       }
     ],
     "configuration": {
@@ -25,6 +36,11 @@
           "type": "number",
           "default": 30,
           "description": "Default exponent for conversion (10^n)"
+        },
+        "bigintConverter.predefinedFactor": {
+          "type": "number",
+          "default": 0,
+          "description": "Predefined exponent for conversion (10^n), no input will be required"
         }
       }
     }
@@ -34,7 +50,8 @@
     "compile": "tsc -p ./",
     "lint": "eslint src --ext ts",
     "watch": "tsc -watch -p ./",
-    "package": "vsce package"
+    "package": "vsce package",
+    "publish": "vsce publish"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
